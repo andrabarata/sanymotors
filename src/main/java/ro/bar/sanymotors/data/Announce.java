@@ -1,10 +1,15 @@
 package ro.bar.sanymotors.data;
 
+import java.util.Date;
+
 public class Announce {
 	
 	private int index;
 	private String image;
 	private String title;
+	private String description;
+	private Date dateCreated;
+	private String categoryName;
 	
 	public int getIndex() {
 		return index;
@@ -25,9 +30,31 @@ public class Announce {
 		this.title = title;
 	}
 	
-	public Announce (int index, String title, String image){
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public Date getDateCreated() {
+		return dateCreated;
+	}
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+	public String getCategoryName() {
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+	public Announce (int index, String title, String description, String image, Date dateCreated, String categoryName){
 		this.index = index;
 		this.title = title;
 		this.image = image;
+		this.description = description;
+	    this.image = image;
+	    this.dateCreated = dateCreated;
+	    this.categoryName = categoryName;
 	}
 }
