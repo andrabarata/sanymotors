@@ -13,6 +13,10 @@ public class AttributeImpl extends SerializableElement implements Attribute{
 	private String value;
 	private Boolean interfaceValue;
 	
+	public AttributeImpl(){
+		
+	}
+	
 	public AttributeImpl(String name, String value, Boolean interfaceValue) {
 		this.name = name;
 		this.value = value;
