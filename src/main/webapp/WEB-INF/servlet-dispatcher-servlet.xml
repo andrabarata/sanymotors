@@ -60,6 +60,8 @@
 			<list>
 				<value>hibernate/post.hbm.xml</value>
 				<value>hibernate/image.hbm.xml</value>
+				<value>hibernate/attribute.hbm.xml</value>
+				<value>hibernate/category.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
