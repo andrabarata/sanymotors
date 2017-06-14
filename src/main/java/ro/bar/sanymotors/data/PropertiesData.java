@@ -10,10 +10,15 @@ public class PropertiesData {
 	@Value("${addressValue}")
 	private String addressValue;
 
-	@Value("${pageItems}")
-	private String pageItems;
+	@Value("${admin.pageItems}")
+	private String adminPageItems;
+	 
+	@Value("${client.pageItems}")
+	private String clientPageItems;
 
 	private int lastPage;
+	private int lastMotorcyclePage;
+	private int lastPiecesPage;
 	
 	public String getAddressValue() {
 		return addressValue;
@@ -23,12 +28,20 @@ public class PropertiesData {
 		this.addressValue = addressValue;
 	}
 
-	public String getPageItems() {
-		return pageItems;
+	public String getAdminPageItems() {
+		return adminPageItems;
 	}
 
-	public void setPageItems(String pageItems) {
-		this.pageItems = pageItems;
+	public void setAdminPageItems(String adminPageItems) {
+		this.adminPageItems = adminPageItems;
+	}
+
+	public String getClientPageItems() {
+		return clientPageItems;
+	}
+
+	public void setClientPageItems(String clientPageItems) {
+		this.clientPageItems = clientPageItems;
 	}
 
 	public boolean getLoggedIn() {
@@ -45,6 +58,22 @@ public class PropertiesData {
 
 	public void setLastPage(int lastPage) {
 		this.lastPage = lastPage;
+	}
+
+	public int getLastMotorcyclePage() {
+		return lastMotorcyclePage;
+	}
+
+	public void setLastMotorcyclePage(int lastMotorcyclePage) {
+		this.lastMotorcyclePage = lastMotorcyclePage;
+	}
+
+	public int getLastPiecesPage() {
+		return lastPiecesPage;
+	}
+
+	public void setLastPiecesPage(int lastPiecesPage) {
+		this.lastPiecesPage = lastPiecesPage;
 	}
 	
 }

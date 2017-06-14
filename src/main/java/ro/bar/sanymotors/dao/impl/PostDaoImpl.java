@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
@@ -76,10 +75,10 @@ public class PostDaoImpl extends AbstractDao implements PostDao{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Post> getAllMotorcycles(int page, int pageSize, String elementId) {
+	public List<Post> getAllMotorcycles(int page, int pageSize, Integer categoryId) {
 		String hqlQuery;
-	    if (StringUtils.isNotBlank(elementId)) {
-	      hqlQuery = "select posts from CategoryImpl categ inner join categ.posts posts where posts.state!=3 and categ.elementId = " + elementId;
+	    if (categoryId != null) {
+	      hqlQuery = "select posts from CategoryImpl categ inner join categ.posts posts where posts.state!=3 and categ.elementId = " + categoryId;
 	    } else
 	      hqlQuery = "select posts from PostImpl posts where posts.state!=3";
 	    if (page == -1) {
