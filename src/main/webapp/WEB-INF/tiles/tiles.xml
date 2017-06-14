@@ -35,5 +35,29 @@
 	<definition name="clientHome" extends="clientPanel">
 		<put-attribute name="body" value="/WEB-INF/clients/home.jsp"/>
 	</definition>
+	<definition name="clientPosts" extends="clientPanel">
+		<put-attribute name="body" value="/WEB-INF/clients/posts.jsp"/>
+	</definition>
+	<definition name="clientPost" extends="clientPanel">
+		<put-attribute name="body" value="/WEB-INF/clients/post.jsp"/>
+	</definition>
+	<definition name="clientPiesa" extends="clientPanel">
+		<put-attribute name="body" value="/WEB-INF/clients/piesa.jsp"/>
+	</definition>
+	<definition name="piese" extends="clientPanel">
+		<put-attribute name="body" value="/WEB-INF/clients/piese.jsp"/>
+	</definition>
+	<definition name="service" extends="clientPanel">
+		<put-attribute name="body" value="/WEB-INF/clients/service.jsp"/>
+	</definition>
+	<definition name="inchirieri" extends="clientPanel">
+		<put-attribute name="body" value="/WEB-INF/clients/inchirieri.jsp"/>
+	</definition>
+	<definition name="forum" extends="clientPanel">
+		<put-attribute name="body" value="/WEB-INF/clients/forum.jsp"/>
+	</definition>
+	<definition name="contact" extends="clientPanel">
+		<put-attribute name="body" value="/WEB-INF/clients/contact.jsp"/>
+	</definition>
 	
 </tiles-definitions>
