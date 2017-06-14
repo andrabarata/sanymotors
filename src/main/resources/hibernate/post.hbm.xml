@@ -2,30 +2,36 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="ro.bar.sanymotors.model.impl.PostImpl" table="POST">
+	<class name="ro.bar.sanymotors.model.impl.PostImpl" table="post">
 		<id name="elementId">
-			<column name="ELEMENTID" />
+			<column name="elementid" />
 			<generator class="increment" />
 		</id>
 
 		<!-- properties bellow -->
-		<property name="title" column="TITLE" />
-		<property name="description" column="DESCRIPTION" />
-		<property name="state" type="java.lang.Integer" column="STATE"/>
-		
+		<property name="title" column="title" />
+		<property name="description" column="description" />
+		<property name="state" type="java.lang.Integer" column="state"/>
+		<property name="dateCreated" column="date_created"></property>
+		<property name="price" column="price"></property>	
+			
         <!-- dependencies -->
-         <many-to-one name="mainImage" cascade="save-update"  
-			class="ro.bar.sanymotors.model.impl.ImageImpl" lazy="proxy"
-			column="IMAGE_FK"
+         <many-to-one name="mainImage" cascade="delete,delete-orphan"  
+			class="ro.bar.sanymotors.model.impl.ImageImpl" lazy="false"
+			column="image_fk"
 			unique="true"/>
 		
 
-		<bag name="additionalImages" lazy="true" cascade="save-update" inverse="false"  table="ADDITIONALIMAGES">
-			<key column="POST_FK" />    
-        	<many-to-many column="IMAGE_FK" class="ro.bar.sanymotors.model.impl.ImageImpl"/>
+		<bag name="additionalImages" lazy="false" cascade="delete,delete-orphan" inverse="false"  table="additionalimages">
+			<key column="post_fk" />    
+        	<many-to-many  column="image_fk" class="ro.bar.sanymotors.model.impl.ImageImpl"/>
 		</bag>
 		
-        
+		<bag name="attributes" lazy="false" cascade="delete,delete-orphan" inverse="false"  table="attribute">
+			<key column="post_fk" />    
+        	<one-to-many class="ro.bar.sanymotors.model.impl.AttributeImpl" />
+		</bag>
+		
 	</class>
 
 

@@ -2,15 +2,18 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="ro.bar.sanymotors.model.impl.ImageImpl" table="image">
+	<class name="ro.bar.sanymotors.model.impl.AttributeImpl" table="attribute">
 		<id name="elementId">
 			<column name="elementid" />
 			<generator class="increment" />
 		</id>
 
 		<!-- properties bellow -->
-		<property name="base64Content" column="content" />
-		
+		<property name="name" column="name" />
+		<property name="value" column="value" />
+		<property name="interfaceValue" column="interfacevalue" type="java.lang.Boolean"/>
+        <!-- dependencies -->
+        
 	</class>
 
 
