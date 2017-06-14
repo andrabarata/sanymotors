@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="adminPanel" template="/WEB-INF/administration/tiles/mainPanel.jsp">
+		<put-attribute name="header" value="/WEB-INF/administration/tiles/header.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/administration/tiles/footer.jsp" />
+	</definition>
+	
+	<definition name="clientPanel" template="/WEB-INF/clients/tiles/mainPanel.jsp">
+		<put-attribute name="header" value="/WEB-INF/clients/tiles/header.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/clients/tiles/footer.jsp" />
+	</definition>
+	
+	<definition name="adminLogin" extends="adminPanel">
+		<put-attribute name="body" value="/WEB-INF/administration/login.jsp"/>
+	</definition>
+	
+	<definition name="adminMainPanel" extends="adminPanel">
+		<put-attribute name="body" value="/WEB-INF/administration/main.jsp"/>
+	</definition>
+
+	<definition name="managePost" extends="adminPanel">
+		<put-attribute name="body" value="/WEB-INF/administration/post.jsp"/>
+	</definition>
+	<definition name="manageAdditImg" extends="adminPanel">
+		<put-attribute name="body" value="/WEB-INF/administration/addit-img.jsp"/>
+	</definition>
+	<definition name="manageProps" extends="adminPanel">
+		<put-attribute name="body" value="/WEB-INF/administration/props.jsp"/>
+	</definition>
+	<definition name="clientHome" extends="clientPanel">
+		<put-attribute name="body" value="/WEB-INF/clients/home.jsp"/>
+	</definition>
+	
+</tiles-definitions>

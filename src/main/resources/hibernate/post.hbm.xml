@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="ro.bar.sanymotors.model.impl.PostImpl" table="POST">
+		<id name="elementId">
+			<column name="ELEMENTID" />
+			<generator class="increment" />
+		</id>
+
+		<!-- properties bellow -->
+		<property name="title" column="TITLE" />
+		<property name="description" column="DESCRIPTION" />
+		<property name="state" type="java.lang.Integer" column="STATE"/>
+		
+        <!-- dependencies -->
+         <many-to-one name="mainImage" cascade="save-update"  
+			class="ro.bar.sanymotors.model.impl.ImageImpl" lazy="proxy"
+			column="IMAGE_FK"
+			unique="true"/>
+		
+
+		<bag name="additionalImages" lazy="true" cascade="save-update" inverse="false"  table="ADDITIONALIMAGES">
+			<key column="POST_FK" />    
+        	<many-to-many column="IMAGE_FK" class="ro.bar.sanymotors.model.impl.ImageImpl"/>
+		</bag>
+		
+        
+	</class>
+
+
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="ro.bar.sanymotors.model.impl.ImageImpl" table="IMAGE">
+		<id name="elementId">
+			<column name="ELEMENTID" />
+			<generator class="increment" />
+		</id>
+
+		<!-- properties bellow -->
+		<property name="base64Content" column="CONTENT" />
+		
+	</class>
+
+
+</hibernate-mapping>
