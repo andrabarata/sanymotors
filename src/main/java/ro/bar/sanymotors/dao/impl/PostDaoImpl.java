@@ -75,7 +75,7 @@ public class PostDaoImpl extends AbstractDao implements PostDao{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Post> getAllMotorcycles(int page, int pageSize, Integer categoryId) {
+	public List<Post> getAllMotorcycles(int page, int pageSize, String categoryId) {
 		String hqlQuery;
 	    if (categoryId != null) {
 	      hqlQuery = "select posts from CategoryImpl categ inner join categ.posts posts where posts.state!=3 and categ.elementId = " + categoryId;

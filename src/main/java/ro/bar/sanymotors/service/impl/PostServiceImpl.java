@@ -82,7 +82,7 @@ public class PostServiceImpl implements PostService{
 	}
 
 	@Override
-	public List<Post> getAllMotorcycles(int page, int pageSize, Integer categoryId) {
+	public List<Post> getAllMotorcycles(int page, int pageSize, String categoryId) {
 		return postDao.getAllMotorcycles(page, pageSize, categoryId);
 	}
 
