@@ -19,7 +19,7 @@ public class PostImpl extends SerializableElement implements Post{
 	private String description;
 	private Date dateCreated;
 	private int state;
-	private double price;
+	private String price;
 	
 	private Image mainImage;
 	private List<Image>additionalImages;
@@ -49,10 +49,10 @@ public class PostImpl extends SerializableElement implements Post{
 	public void setState(int state) {
 		this.state = state;
 	}
-	public double getPrice() {
+	public String getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 	public Image getMainImage() {
