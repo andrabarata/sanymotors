@@ -434,7 +434,7 @@ a:hover,a:focus {
 }
 
 .row-fluid .span2 {
-	width: 14.893617021276595%;
+	width: 14.28%;
 	*width: 14.840425531914894%
 }
 
@@ -3922,6 +3922,7 @@ button.btn.btn-mini,input[type="submit"].btn.btn-mini {
 .navbar {
 	*position: relative;
 	*z-index: 2;
+	margin-bottom: 20px;
 	overflow: visible
 }
 
@@ -4326,20 +4327,20 @@ button.btn.btn-mini,input[type="submit"].btn.btn-mini {
 
 .navbar-inverse .navbar-inner {
 	background-color: #1b1b1b;
-	background-image: -moz-linear-gradient(top, #CBFFC7,#78AC67);
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#CBFFC7),
-		to(#78AC67));
-	background-image: -webkit-linear-gradient(top, #CBFFC7, #78AC67);
-	background-image: -o-linear-gradient(top, #CBFFC7, #78AC67);
-	background-image: linear-gradient(to bottom,#CBFFC7,#78AC67);
+	background-image: -moz-linear-gradient(top, #222, #111);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222),
+		to(#111));
+	background-image: -webkit-linear-gradient(top, #222, #111);
+	background-image: -o-linear-gradient(top, #222, #111);
+	background-image: linear-gradient(to bottom, #222, #111);
 	background-repeat: repeat-x;
 	border-color: #252525;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CBFFC7',
-		endColorstr='#78AC67', GradientType=0)
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222',
+		endColorstr='#ff111111', GradientType=0)
 }
 
 .navbar-inverse .brand,.navbar-inverse .nav>li>a {
-	color: #424242;
+	color: #999;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25)
 }
 
