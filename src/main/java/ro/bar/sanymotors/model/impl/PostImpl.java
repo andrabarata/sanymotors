@@ -1,5 +1,6 @@
 package ro.bar.sanymotors.model.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +18,7 @@ public class PostImpl extends SerializableElement implements Post{
 	private static final long serialVersionUID = 1L;
 	private String title;
 	private String description;
-	private Date dateCreated;
+	private String dateCreated;
 	private int state;
 	private String price;
 	
@@ -37,10 +38,10 @@ public class PostImpl extends SerializableElement implements Post{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Date getDateCreated() {
+	public String getDateCreated() {
 		return dateCreated;
 	}
-	public void setDateCreated(Date dateCreated) {
+	public void setDateCreated(String dateCreated) {
 		this.dateCreated = dateCreated;
 	}
 	public int getState() {
@@ -87,7 +88,7 @@ public class PostImpl extends SerializableElement implements Post{
 	}
 	
 	public void setNewCreationDate(){
-		dateCreated = new Date();
+		dateCreated = new SimpleDateFormat("dd/MM/yy hh:mm").format(new Date());
 	}
 	
 	public void addAllAttribues(List<Attribute> attributes) {
