@@ -1,14 +1,12 @@
 package ro.bar.sanymotors.data;
 
-import java.util.Date;
-
 public class Announce {
 	
 	private int index;
 	private String image;
 	private String title;
 	private String description;
-	private Date dateCreated;
+	private String dateCreated;
 	private String categoryName;
 	
 	public int getIndex() {
@@ -36,10 +34,10 @@ public class Announce {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Date getDateCreated() {
+	public String getDateCreated() {
 		return dateCreated;
 	}
-	public void setDateCreated(Date dateCreated) {
+	public void setDateCreated(String dateCreated) {
 		this.dateCreated = dateCreated;
 	}
 	public String getCategoryName() {
@@ -48,7 +46,7 @@ public class Announce {
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
-	public Announce (int index, String title, String description, String image, Date dateCreated, String categoryName){
+	public Announce (int index, String title, String description, String image, String dateCreated, String categoryName){
 		this.index = index;
 		this.title = title;
 		this.image = image;

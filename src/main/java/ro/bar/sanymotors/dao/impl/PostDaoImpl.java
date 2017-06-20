@@ -3,7 +3,6 @@ package ro.bar.sanymotors.dao.impl;
 import java.math.BigInteger;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -31,9 +30,9 @@ public class PostDaoImpl extends AbstractDao implements PostDao{
 	 		String title = (String)result[1];
 	 		byte[] bdata = (byte[])result[2];
 	 		String base64Content = new String(bdata);
-	 		String description = (String)result[3];
-	 		Date dateCreated = (Date)result[4];
-	 		String category = (String)result[5];
+	 		String description = (String) result[3];
+	 		String dateCreated = (String) result[4];
+	 		String category = (String) result[5];
 	 		Announce announce = new Announce(index, title, description, base64Content, dateCreated, category);
 	 		announces.add(announce);
 		}

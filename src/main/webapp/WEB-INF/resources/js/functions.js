@@ -47,6 +47,14 @@ function doVoidAjaxRequest(uriValue, dataValue){
 		$(".addit-img-content").each(function(){
 			$(".main").height($(".main").height()+$(this).height());
 		});
+		$(".interfaceValue").click(function(){
+			var isChecked = $(this).prop("checked")?true:false;
+			if (isChecked){
+				$(this).parent().find("#interface").val("1");
+			} else {
+				$(this).parent().find("#interface").val("0");
+			}
+		});
 	};
 	doAjaxRequest(pageName, dataValue,functionValue);
 }
@@ -331,16 +339,6 @@ function goOn(formId,pageName,event){
 			});
 		var formData = $("#"+formId).serialize();
 		doAdminAjaxRequest(pageName, formData);
-		if (pageName=="/administration/props"){
-			$(".interfaceValue").click(function(){
-				var isChecked = $(this).prop("checked")?true:false;
-				if (isChecked){
-					$(this).parent().find("#interface").val("1");
-				} else {
-					$(this).parent().find("#interface").val("0");
-				}
-			});
-		}
 	}
 	else{
 		$("#errorMsg").html("");
@@ -477,14 +475,6 @@ function setAttrib(attributeName){
 	$(tr).find("td:eq(0)").prepend("<span class='attrName'>" + attributeName + "</span>	<div class='bordered' style='width: 50%;margin: 0 auto;display: block!important;'><input type='checkbox' class='interfaceValue' style='margin-top:-1px'/><span style='padding-left: 2px'>Doresc sa apara in interfata</span><input type='hidden' id='interface' name='interfaceValue' value='0'></div>");
 	$(tr).find("textarea").removeAttr("readonly");
 	$("#attrBox").modal('hide');
-	$(".interfaceValue").click(function(){
-		var isChecked = $(this).prop("checked")?true:false;
-		if (isChecked){
-			$(this).parent().find("#interface").val("1");
-		} else {
-			$(this).parent().find("#interface").val("0");
-		}
-	});
 }
 function addProperty(){
 	var pos = parseInt($("#position").val());

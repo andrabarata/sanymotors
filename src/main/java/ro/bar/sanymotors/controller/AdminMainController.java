@@ -107,7 +107,7 @@ public class AdminMainController {
 	    			for (String attributeName : attributeNames) {
 	    				String attributeValue = attributeValues[pos];
 	    				String interfaceValue = interfaceValues[(pos++)];
-	    				AttributeImpl attribute = new AttributeImpl(attributeName, attributeValue, new Boolean(interfaceValue));
+	    				AttributeImpl attribute = new AttributeImpl(attributeName, attributeValue, interfaceValue.equals("1"));
 	    				attributes.add(attribute);
 	    			}
 	    		if (StringUtils.isNotBlank(status)) {
@@ -122,12 +122,12 @@ public class AdminMainController {
 	    		for (Attribute attribute : attributes)
 	    			genericService.addEntity(attribute);
 	    		foundPost.addAllAttribues(attributes);
-	    		category.addPost(foundPost);
 	    		if (foundPost.getElementId() != -1) {
 	    			genericService.modifyEntity(foundPost);
-	    		} else
-	    			genericService.addEntity(foundPost);
-	    		genericService.modifyEntity(category);
+	    		} else {
+	    			category.addPost(foundPost);
+	    			genericService.modifyEntity(category);
+	    		}
 	    		if ((foundMainImage != null) && (((ImageImpl)foundMainImage).getElementId() != -1))
 	    			genericService.removeEntity(foundMainImage);
 	    	}
