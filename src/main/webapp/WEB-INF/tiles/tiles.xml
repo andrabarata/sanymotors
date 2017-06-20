@@ -15,6 +15,10 @@
 		<put-attribute name="footer" value="/WEB-INF/clients/tiles/footer.jsp" />
 	</definition>
 	
+	<definition name="clientError" extends="clientPanel">
+		<put-attribute name="body" value="/WEB-INF/clients/error.jsp"/>
+	</definition>
+	
 	<definition name="adminLogin" extends="adminPanel">
 		<put-attribute name="body" value="/WEB-INF/administration/login.jsp"/>
 	</definition>

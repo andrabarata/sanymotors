@@ -22,7 +22,7 @@ public class GenericServiceImpl implements GenericService{
 	
 	@Override
 	public void addEntity(Object obj) {
-		((PostDaoImpl)postDao).saveOrUpdate(obj);
+		((PostDaoImpl)postDao).save(obj);
 	}
 
 	@Override

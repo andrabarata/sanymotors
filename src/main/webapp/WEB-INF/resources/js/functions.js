@@ -53,8 +53,9 @@ function doVoidAjaxRequest(uriValue, dataValue){
 $(document).ready(function(){
 	initDraw(document.getElementById('imageContent'));
 	setSameHeights();
-	if ($(window).height()>$(".main").height())
-		$(".main").height($(window).height());
+	var height = $(window).height() - $(".mainHeader").outerHeight() - $("#nav").outerHeight();
+	if (height > $(".main").height())
+		$(".main").outerHeight(height);
 });
 function displayPage(page){
 	var uriValue = "/administration/changePage";

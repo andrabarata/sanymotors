@@ -59,7 +59,7 @@ public class AdminMainController {
 	  
 	@RequestMapping({"/administration"})
 	public void startAdministration(HttpSession session, HttpServletResponse response) throws IOException{
-		response.sendRedirect("login");
+		response.sendRedirect("administration/login");
 	}
 	  
 	@RequestMapping({"/administration/login"})
@@ -138,7 +138,7 @@ public class AdminMainController {
 	    	return new ModelAndView("adminMainPanel", modelMap);
 	    }
 	    modelMap.put("error", "Nu aveti dreptul de a accesa aceasta adresa!");
-	    return new ModelAndView("clientPanel", modelMap);
+	    return new ModelAndView("clientError", modelMap);
 	}
 	
 	@RequestMapping({"/administration/updateImage"})

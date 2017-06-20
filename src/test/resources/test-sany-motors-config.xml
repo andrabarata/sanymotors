@@ -21,14 +21,22 @@
 		<property name="location" value="classpath:sanymotors.properties" />
 	</bean>
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="${datasource.driverClassName}"></property>
-		<property name="url" value="${datasource.url}" />
-		<property name="username" value="${datasource.user}" />
-		<property name="password" value="${datasource.password}" />
-		<property name="initialSize" value="5"/>
-		<property name="maxActive" value="0"/>
-	</bean>
+	 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close"
+          p:driverClass="${datasource.driverClassName}" p:jdbcUrl="${datasource.url}"
+          p:user="${datasource.user}" p:password="${datasource.password}"
+
+          p:acquireIncrement="1" 
+          p:checkoutTimeout="3000"
+          p:idleConnectionTestPeriod="5"           
+          p:maxIdleTime="60" 
+          p:maxIdleTimeExcessConnections="1" 
+          p:maxPoolSize="20" p:maxStatements="20000" p:maxStatementsPerConnection="1000" 
+          p:minPoolSize="1" 
+          p:numHelperThreads="10"
+          p:overrideDefaultUser="${datasource.user}" p:overrideDefaultPassword="${datasource.password}"
+          p:propertyCycle="3" 
+          p:testConnectionOnCheckin="true"
+          p:unreturnedConnectionTimeout="60" />
 
 
 	<bean id="sessionFactory"

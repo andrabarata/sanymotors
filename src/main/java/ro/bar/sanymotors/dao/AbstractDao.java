@@ -15,8 +15,8 @@ public class AbstractDao {
 		return sessionFactory.getCurrentSession();
 	}
 	
-	public void saveOrUpdate(Object obj){
-		getCurrentSession().persist(obj);
+	public void save(Object obj){
+		getCurrentSession().save(obj);
 	}
 	public void merge(Object obj){
 		getCurrentSession().merge(obj);

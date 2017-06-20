@@ -298,8 +298,8 @@
 	box-shadow: inset 0px 0px 12px 0px #ffffff;
 	background: rgb(245, 243, 226);
 }
-.info{
-	text-align:center;
-	float:left;
-	width:30%;
+.client-error{
+	color: red;
+    text-align: center;
+    padding-top: 5px;
 }
