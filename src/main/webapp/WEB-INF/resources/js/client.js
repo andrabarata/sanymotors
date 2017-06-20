@@ -66,29 +66,6 @@ function showPiesa(elementId){
 	document.location.href = $("#host").val()+"/piese/anunt?p="+btoa(elementId);
 }
 $(document).ready(function(){
-	if ($(window).height()>$(".main").height())
-		$(".main").height($(window).height());
-	$( window ).resize(function() {
-		if ($(window).width()<675){
-			$(".fb-like").css("width","100%");
-			$(".info").css("width","100%");
-			$(".y-mess img").css("margin-left","0");
-			
-		} else {
-			$(".fb-like").css("width","35%");
-			$(".info").css("width","30%");
-			$(".y-mess img").css("margin-left","65%");
-		}
-	});
-	if ($(window).width()<675){
-		$(".fb-like").css("width","100%");
-		$(".info").css("width","100%");
-		$(".y-mess img").css("margin-left","0");
-	} else {
-		$(".fb-like").css("width","35%");
-		$(".info").css("width","30%");
-		$(".y-mess img").css("margin-left","65%");
-	}
 	$('.bxslider').bxSlider();
 	$(".img-box").click(function(){
 		var width = $(window).width();
