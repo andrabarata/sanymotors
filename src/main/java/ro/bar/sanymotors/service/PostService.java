@@ -12,9 +12,8 @@ public interface PostService {
 	
 	public List<Announce> getAllAnnounces(int page, int pageSize) throws SQLException;
 	public int getLastPage(int pageSize);
-	public int getLastMotorcyclePage(int pageSize);
+	public int getLastMotorcyclePage(int pageSize, String category);
 	public int getLastPiecesPage(int pageSize);
-	public void deletePost(int elementId);
 	public List<String> getAvailableAttributeNames();
 	public List<AttributeImpl> getAttributes(int elementId);
 	public int getBelongingCategoryId(int elementId);

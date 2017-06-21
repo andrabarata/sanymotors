@@ -26,6 +26,8 @@ public class PostImpl extends SerializableElement implements Post{
 	private List<Image>additionalImages;
 	private List<Attribute> attributes;
 	
+	private CategoryImpl belongingCategory;
+	
 	public String getTitle() {
 		return title;
 	}
@@ -98,5 +100,11 @@ public class PostImpl extends SerializableElement implements Post{
 	    	this.attributes = new ArrayList<>();
 	    }
 	    this.attributes.addAll(attributes);
+	}
+	public CategoryImpl getBelongingCategory() {
+		return belongingCategory;
+	}
+	public void setBelongingCategory(CategoryImpl belongingCategory) {
+		this.belongingCategory = belongingCategory;
 	}
 }

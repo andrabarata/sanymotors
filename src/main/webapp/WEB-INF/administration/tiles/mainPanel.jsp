@@ -11,6 +11,7 @@
 <link href="${propertiesData.addressValue}/resources/css/bootstrap-responsive.min.css" rel="stylesheet" media="all">
 <link href="${propertiesData.addressValue}/resources/css/style.css" rel="stylesheet" media="all">
 <script type="text/javascript" src="${propertiesData.addressValue}/resources/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="${propertiesData.addressValue}/resources/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="${propertiesData.addressValue}/resources/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${propertiesData.addressValue}/resources/js/functions.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

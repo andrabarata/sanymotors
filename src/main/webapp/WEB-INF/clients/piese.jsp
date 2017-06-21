@@ -87,13 +87,13 @@
 		                	<c:if test="${page!=1 }">
 		                		<li class="paginationItem" id="pg1" onclick="displayPage('1')">«</li>
 		                	</c:if>
-		                 	<c:if test="${page>4 and propertiesData.lastPage>5}">
+		                 	<c:if test="${page>4 and propertiesData.lastPiecesPage>5}">
 		                    	<li class="dotPaged">...</li>
 		                    </c:if>
 		                    <c:choose>
 		                    	<c:when test="${page<5}">
 		                    		<c:choose>
-		                    			<c:when test="${propertiesData.lastPage>5}">
+		                    			<c:when test="${propertiesData.lastPiecesPage>5}">
 		                    				<c:forEach begin="1" end="5" var="pageCount">
 			                 					<c:set var="contPage" value=""/>
 			                 					<c:if test="${page==pageCount}">
@@ -103,7 +103,7 @@
 			                 				</c:forEach>
 		                    			</c:when>
 		                    			<c:otherwise>
-		                    				<c:forEach var="pageCount" begin="1" end="${propertiesData.lastPage}">
+		                    				<c:forEach var="pageCount" begin="1" end="${propertiesData.lastPiecesPage}">
 		                    					<c:set var="contPage" value=""/>
 			                 					<c:if test="${page==pageCount}">
 			                 						<c:set var="contPage" value="active"/>
@@ -115,7 +115,7 @@
 		                    	</c:when>
 		                    	<c:otherwise>
 		                    	<c:choose>
-		                    		<c:when test="${propertiesData.lastPage-page>2}">
+		                    		<c:when test="${propertiesData.lastPiecesPage-page>2}">
 		                    			<c:forEach var="pageCount" begin="${page-2}" end="${page+2}">
 			                 				<c:set var="contPage" value=""/>
 			                 				<c:if test="${page==pageCount}">
@@ -125,7 +125,7 @@
 			                 			</c:forEach>+
 		                    		</c:when>
 		                    		<c:otherwise>
-		                    			<c:forEach var="pageCount" begin="${page-2}" end="${propertiesData.lastPage}">
+		                    			<c:forEach var="pageCount" begin="${page-2}" end="${propertiesData.lastPiecesPage}">
 		                    				<c:set var="contPage" value=""/>
 			                 				<c:if test="${page==pageCount}">
 			                 					<c:set var="contPage" value="active"/>
@@ -136,11 +136,11 @@
 		                    	</c:choose>
 		                    	</c:otherwise>
 		                    </c:choose>
-		                    <c:if test="${propertiesData.lastPage-page>2 and propertiesData.lastPage>5}">
+		                    <c:if test="${propertiesData.lastPiecesPage-page>2 and propertiesData.lastPiecesPage>5}">
 				                    	<li class="paginationItem dotPaged">...</li>
 							</c:if>
-		                      <c:if test="${page!=propertiesData.lastPage && propertiesData.lastPage!=0}">
-				                    	<li class="paginationItem" id="pg${propertiesData.lastPage}" onclick="displayPage('${propertiesData.lastPage}')">»</li>
+		                      <c:if test="${page!=propertiesData.lastPiecesPage && propertiesData.lastPiecesPage!=0}">
+				                    	<li class="paginationItem" id="pg${propertiesData.lastPiecesPage}" onclick="displayPage('${propertiesData.lastPiecesPage}')">»</li>
 							</c:if>
 		                 </ul>
 	            	</div>

@@ -36,10 +36,8 @@ public class CategoryImpl extends SerializableElement implements Category{
 	  }
 	  
 	  private boolean hasPost(PostImpl post) {
-		  int i = 0;
 		  for (PostImpl foundPost : posts) {
 			  if (foundPost.getElementId() == post.getElementId()) {
-				  posts.set(i, post);
 				  return true;
 			  }
 		  }

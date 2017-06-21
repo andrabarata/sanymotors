@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
@@ -46,8 +47,11 @@ public class PostDaoImpl extends AbstractDao implements PostDao{
 	}
 
 	@Override
-	public int getMotorcyclePostCount() {
+	public int getMotorcyclePostCount(String categoryId) {
 		String sqlQuery = "select count(*) from post where state!=3";
+		if (StringUtils.isNotEmpty(categoryId)) {
+			sqlQuery += " and category_fk=" + categoryId;
+		}
 	    return ((BigInteger)getCurrentSession().createSQLQuery(sqlQuery).uniqueResult()).intValue();
 	}
 
@@ -55,15 +59,6 @@ public class PostDaoImpl extends AbstractDao implements PostDao{
 	public int getPiecesPostCount() {
 		String sqlQuery = "select count(*) from post where state=3";
 	    return ((BigInteger)getCurrentSession().createSQLQuery(sqlQuery).uniqueResult()).intValue();
-	}
-
-	@Override
-	public void deletePost(int elementId) {
-		String hql = "delete from from PostImpl where elementId = :elemId";
-	    Query query = getCurrentSession().createQuery(hql);
-	    query.setParameter("elemId", elementId);
-	    query.executeUpdate();
-		
 	}
 
 	@Override

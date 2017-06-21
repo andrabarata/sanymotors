@@ -37,7 +37,7 @@ public class PostServiceImpl implements PostService{
 	public List<Announce> getAllAnnounces(int page, int pageSize) throws SQLException {
 		return postDao.getAnnounces(page, pageSize);
 	}
-
+	
 	@Override
 	public int getLastPage(int pageSize) {
 		int postNumber = postDao.getPostCount();
@@ -45,8 +45,8 @@ public class PostServiceImpl implements PostService{
 	}
 
 	@Override
-	public int getLastMotorcyclePage(int pageSize) {
-		int postNumber = postDao.getMotorcyclePostCount();
+	public int getLastMotorcyclePage(int pageSize, String category) {
+		int postNumber = postDao.getMotorcyclePostCount(category);
 		return getPage(postNumber, pageSize);
 	}
 
@@ -54,11 +54,6 @@ public class PostServiceImpl implements PostService{
 	public int getLastPiecesPage(int pageSize) {
 		int postNumber = postDao.getPiecesPostCount();
 		return getPage(postNumber, pageSize);
-	}
-
-	@Override
-	public void deletePost(int elementId) {
-		postDao.deletePost(elementId);
 	}
 
 	@Override

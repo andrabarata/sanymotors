@@ -16,10 +16,10 @@ public class AbstractDao {
 	}
 	
 	public void save(Object obj){
-		getCurrentSession().save(obj);
+		getCurrentSession().saveOrUpdate(obj);
 	}
 	public void merge(Object obj){
-		getCurrentSession().merge(obj);
+		getCurrentSession().update(obj);
 	}
 	public void deleteEntity(Object obj){
 		getCurrentSession().delete(obj);

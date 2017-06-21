@@ -15,7 +15,7 @@
 		</ul>
 		<div class="clearfix"></div>
 		<c:if test="${post.state==1}">
-			<img alt="Vanzari motociclete" src="../resources/img/selled.jpg" style="max-height:160px"/>
+			<img alt="Vanzari motociclete" src="../resources/img/selled.png" style="max-height:160px"/>
 			<div class="clearfix"></div>
 		</c:if>
 		<span class="title">${post.title}</span>

@@ -16,22 +16,26 @@
 		<property name="price" column="price"></property>	
 			
         <!-- dependencies -->
-         <many-to-one name="mainImage" cascade="delete,delete-orphan"  
+         <many-to-one name="mainImage" cascade="all,delete-orphan"  
 			class="ro.bar.sanymotors.model.impl.ImageImpl" lazy="false"
 			column="image_fk"
 			unique="true"/>
 		
 
-		<bag name="additionalImages" lazy="false" cascade="delete,delete-orphan" inverse="false"  table="additionalimages">
+		<bag name="additionalImages" lazy="false" cascade="all,delete-orphan" inverse="false"  table="additionalimages">
 			<key column="post_fk" />    
         	<many-to-many  column="image_fk" class="ro.bar.sanymotors.model.impl.ImageImpl"/>
 		</bag>
 		
-		<bag name="attributes" lazy="false" cascade="delete,delete-orphan" inverse="false"  table="attribute">
+		<bag name="attributes" lazy="false" cascade="all,delete-orphan" inverse="false"  table="attribute">
 			<key column="post_fk" />    
         	<one-to-many class="ro.bar.sanymotors.model.impl.AttributeImpl" />
 		</bag>
 		
+		
+		<many-to-one name="belongingCategory" cascade="save-update"  
+			class="ro.bar.sanymotors.model.impl.CategoryImpl" lazy="proxy"
+			column="category_fk"/>
 	</class>
 
 

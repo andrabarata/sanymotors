@@ -8,7 +8,7 @@
 <body>	
 	<script type="text/javascript">
 	</script>
-	<div class="adminContent">
+	<div class="adminContent row-fluid">
 		<c:set var="title">Adaugare anunt</c:set>
 		<c:if test="${not empty postData.elementId}">
 			<c:set var="title">Modificare anunt</c:set>

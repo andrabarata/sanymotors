@@ -46,7 +46,7 @@ public class ClientController{
 		  int pageValue = StringUtils.isNotBlank(page) ? Integer.parseInt(page) : 1;
 		  modelMap.put("page", pageValue);
 		  postData.setCategory(category);
-		  propertiesData.setLastMotorcyclePage(postService.getLastPage(Integer.parseInt(propertiesData.getClientPageItems())));
+		  propertiesData.setLastMotorcyclePage(postService.getLastMotorcyclePage(Integer.parseInt(propertiesData.getClientPageItems()), category));
 		  List<Post> posts = postService.getAllMotorcycles(pageValue, Integer.parseInt(propertiesData.getClientPageItems()), category);
 		  postData.setPosts(posts);
 		  modelMap.put("posts", posts);
@@ -77,7 +77,7 @@ public class ClientController{
 		  Map<String, Object> modelMap = new HashMap<>();
 		  int pageValue = StringUtils.isNotBlank(page) ? Integer.parseInt(page) : 1;
 		  modelMap.put("page", Integer.valueOf(pageValue));
-		  propertiesData.setLastPiecesPage(postService.getLastPage(Integer.parseInt(propertiesData.getClientPageItems())));
+		  propertiesData.setLastPiecesPage(postService.getLastPiecesPage(Integer.parseInt(propertiesData.getClientPageItems())));
 		  List<Post> posts = postService.getAllPieces(pageValue, Integer.parseInt(propertiesData.getClientPageItems()));
 		  postData.setPosts(posts);
 		  modelMap.put("posts", posts);

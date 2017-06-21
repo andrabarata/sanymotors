@@ -4,7 +4,7 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
  <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-	<div class="adminContent">
+	<div class="adminContent row-fluid">
 		<span class="title">Adaugare imagini aditionale</span>
 		<div class="clearfix"></div>
 		<button class="btn btn-success" style="float:left;" onclick="addAdditImg()">Adauga inca o imagine</button>
@@ -18,7 +18,7 @@
 				<div class="addit-images">
 					<c:choose>
 						<c:when test="${empty postData.additionalImages}">
-							<div class="span12 addit-img-content" >
+							<div class="span12 addit-img-content row-fluid" >
 								<fieldset>
 									<legend>Imagine aditionala</legend>
 									<div class="emptyImage">
@@ -34,7 +34,7 @@
 						</c:when>
 						<c:otherwise>
 							<c:forEach items="${postData.additionalImages}" var="additImg" varStatus="id">
-								<div class="span12 addit-img-content" >
+								<div class="span12 addit-img-content row-fluid" >
 									<fieldset>
 										<legend>Imagine aditionala</legend>
 										<div class="emptyImage">

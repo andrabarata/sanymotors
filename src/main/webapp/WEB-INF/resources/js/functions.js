@@ -39,14 +39,12 @@ function doVoidAjaxRequest(uriValue, dataValue){
 			alert(error);
 		}
 	});
-}function doAdminAjaxRequest(pageName, dataValue){
+}
+function doAdminAjaxRequest(pageName, dataValue){
 	var functionValue = function(response){
 		var $data = $($.parseHTML(response));
 		var $templateBody = $($data.find('.adminContent'));
 		$('.adminContent').html($templateBody.html());
-		$(".addit-img-content").each(function(){
-			$(".main").height($(".main").height()+$(this).height());
-		});
 		$(".interfaceValue").click(function(){
 			var isChecked = $(this).prop("checked")?true:false;
 			if (isChecked){
@@ -55,6 +53,9 @@ function doVoidAjaxRequest(uriValue, dataValue){
 				$(this).parent().find("#interface").val("0");
 			}
 		});
+		var height = $(window).height() - $(".mainHeader").outerHeight() - $("#nav").outerHeight();
+		if (height > $(".main").height() + 5)
+			$(".main").height(height);
 	};
 	doAjaxRequest(pageName, dataValue,functionValue);
 }
@@ -63,7 +64,7 @@ $(document).ready(function(){
 	setSameHeights();
 	var height = $(window).height() - $(".mainHeader").outerHeight() - $("#nav").outerHeight();
 	if (height > $(".main").height())
-		$(".main").outerHeight(height);
+		$(".main").height(height);
 });
 function displayPage(page){
 	var uriValue = "/administration/changePage";
@@ -134,7 +135,6 @@ function readURL(fileId,imageId) {
 		   $("#errorMsg").text("Dimensiunea imaginii depaseste limitele impuse!");
 		   $("#errorBox").modal();
 	   }
-   $(".main").height($(".main").height() + $(".addit-img-content").last().height());
 }
 function showImageBox(event, imageIdParam){
 	imageId = imageIdParam;
@@ -154,6 +154,7 @@ function showImageBox(event, imageIdParam){
 			$("#pictureBox").css("left",leftProcent);
 		}
 		$("#pictureBox").height($(imgId).height()+100);
+		$("#pictureBox").css("top","30%");
 		if ($(imgId).height()>380){
 			$("#pictureBox").find(".modal-body").css("max-height",($(imgId).height()+100)+"px");
 		}
@@ -162,8 +163,10 @@ function showImageBox(event, imageIdParam){
 		$("#imageContent").css("background-size","100% 100%");
 		$("#imageContent").find("div").remove();
 		initDraw(document.getElementById('imageContent'));
-		$("#pictureBox").css("top",$(imgId).offset().top-$(imgId).height()/2);
 		$("#pictureBox").modal();
+		$("#pictureBox").draggable({
+		    handle: ".modal-header"
+		});
 	}
 }
 function setSameHeights(){

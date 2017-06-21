@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-	<div class="adminContent">
+	<div class="adminContent row-fluid">
 		<div >
 		<button class="btn btn-success" style="float:left;" onclick="addProperty()">Adauga inca o proprietate</button>
 		<button class="btn btn-success" style="float:right;" onclick="checkProps(event)">Finalizeaza</button>
@@ -21,7 +21,7 @@
 				<input type="hidden" id="position" value="${fn:length(attributes)}"/>
 			</c:otherwise>
 		</c:choose>
-			<div class="span12" id="content">
+			<div id="content">
 				<form id="propsForm" method="post" action="posts">
 				<input type="hidden" name="save" value="true"/>
 					<div class="bordered" style="margin-top:1%;width:17%">
@@ -61,6 +61,7 @@
 												<input type="hidden" id="interface" name="interfaceValue" value="${value}">
 											</div>
 											<input type="hidden" name="attrName" value="${attribute.name}"/>
+											<input type="hidden" name="elemId" value="${attribute.elementId}"/>
 										</td>
 										<td style="width:45%"><textarea class="attr-textarea" rows="3" cols="30">${attribute.value}</textarea><input type="hidden" name="attrValue" value="${attribute.value}"/></td>
 										<td><button class="btn btn-success" onclick="deleteProperty(event,'${id.index}')">Sterge</button></td>

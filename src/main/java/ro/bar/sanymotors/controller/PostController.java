@@ -47,7 +47,7 @@ public class PostController {
 	    	return new ModelAndView("adminMainPanel", modelMap);
 	    }
 	    modelMap.put("error", "Nu aveti dreptul de a accesa aceasta adresa!");
-	    return new ModelAndView("clientPanel", modelMap);
+	    return new ModelAndView("clientError", modelMap);
 	}
 	  
 	@ResponseBody
@@ -73,7 +73,7 @@ public class PostController {
 		}
 	    Map<String, Object> modelMap = new HashMap<>();
 	    modelMap.put("error", "Nu aveti dreptul de a accesa aceasta adresa!");
-	    return new ModelAndView("clientPanel", modelMap);
+	    return new ModelAndView("clientError", modelMap);
 	}
 	  
 	@RequestMapping({"/administration/additImg"})
@@ -105,7 +105,7 @@ public class PostController {
 	    }
 	    Map<String, Object> modelMap = new HashMap<>();
 	    modelMap.put("error", "Nu aveti dreptul de a accesa aceasta adresa!");
-	    return new ModelAndView("clientPanel", modelMap);
+	    return new ModelAndView("clientError", modelMap);
 	}
 	  
 	@RequestMapping({"/administration/props"})
@@ -131,7 +131,7 @@ public class PostController {
 	    	return new ModelAndView("manageProps", modelMap);
 	    }
 	    modelMap.put("error", "Nu aveti dreptul de a accesa aceasta adresa!");
-	    return new ModelAndView("clientPanel", modelMap);
+	    return new ModelAndView("clientError", modelMap);
 	}
 	  
 	@ResponseBody
@@ -145,7 +145,8 @@ public class PostController {
 			@ModelAttribute("propertiesData") PropertiesData propertiesData) throws NumberFormatException, SQLException {
 		
 	    if ((session.getAttribute("isAdmin") != null) && (((Boolean)session.getAttribute("isAdmin")).booleanValue())) {
-	    	postService.deletePost(Integer.parseInt(elementId));
+	    	PostImpl post = (PostImpl) genericService.getEntity("PostImpl", elementId);
+	    	genericService.removeEntity(post);
 	    	Map<String, Object> modelMap = new HashMap<>();
 	    	propertiesData.setLastPage(postService.getLastPage(Integer.parseInt(propertiesData.getAdminPageItems())));
 	    	modelMap.put("page", Integer.valueOf(1));
@@ -155,6 +156,6 @@ public class PostController {
 	    }
 	    Map<String, Object> modelMap = new HashMap<>();
 	    modelMap.put("error", "Nu aveti dreptul de a accesa aceasta adresa!");
-	    return new ModelAndView("clientPanel", modelMap);
+	    return new ModelAndView("clientError", modelMap);
 	}
 }

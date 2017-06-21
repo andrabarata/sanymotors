@@ -11,7 +11,7 @@
 		<!-- properties bellow -->
 		<property name="name" column="name" />
 		
-		<bag name="posts" lazy="false" cascade="all" inverse="false"  table="post">
+		<bag name="posts" lazy="false" inverse="true"  table="post">
 			<key column="category_fk" />    
         	<one-to-many class="ro.bar.sanymotors.model.impl.PostImpl" />
 		</bag>

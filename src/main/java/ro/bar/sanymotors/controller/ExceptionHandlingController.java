@@ -19,6 +19,6 @@ public class ExceptionHandlingController {
 		if ((session.getAttribute("isAdmin") != null) && (((Boolean)session.getAttribute("isAdmin")).booleanValue())) {
 			return new ModelAndView("adminLogin", modelMap);
 		}
-		return new ModelAndView("clientPanel", modelMap);
+		return new ModelAndView("clientError", modelMap);
 	}
 }

@@ -15,7 +15,6 @@
 .mainHeader h4 {
 	float: right;
 	color: white;
-	margin-top: 13%;
 }
 
 .adminContent {
@@ -377,4 +376,6 @@
 	-o-background-size: cover;
 	background-size: cover;
 	padding-top: 2%;
+	float:none!important;
+	height: 100%;
 }

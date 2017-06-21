@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-	<div class="adminContent">
+	<div class="adminContent row-fluid">
 		<c:set var="pos">${(page-1)*propertiesData.adminPageItems+1}</c:set>
 		<span class="title">Anunturi</span>
 		<c:if test="${not empty msg}">

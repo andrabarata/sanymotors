@@ -9,6 +9,20 @@ $(document).ready(function(){
 		$(this).removeClass("img-fixed");
     	$(this).removeClass('transition');
     });
+	var height = $(window).height() - $(".main").height();
+	if (height > 200)
+		$(".main").height($(".main").height() + height);
+	$('.bxslider').bxSlider();
+	$(".img-box").click(function(){
+		var width = $(window).width();
+		$.colorbox({
+			html:"<img src='" +$(this).attr("src") + "' max-width='" + width + "px'/>",
+			maxWidth:"100%",
+			maxHeight:"100%"
+		});
+	});
+	if (document.location.href.indexOf("contact")!=-1)
+		google.maps.event.addDomListener(window, 'load', initialize);
 });
 function playclip(id) {
 	audio = new Audio("resources/sounds/" + id+".mp3");
@@ -65,19 +79,6 @@ function showPost(elementId){
 function showPiesa(elementId){
 	document.location.href = $("#host").val()+"/piese/anunt?p="+btoa(elementId);
 }
-$(document).ready(function(){
-	$('.bxslider').bxSlider();
-	$(".img-box").click(function(){
-		var width = $(window).width();
-		$.colorbox({
-			html:"<img src='" +$(this).attr("src") + "' max-width='" + width + "px'/>",
-			maxWidth:"100%",
-			maxHeight:"100%"
-		});
-	});
-	if (document.location.href.indexOf("contact")!=-1)
-		google.maps.event.addDomListener(window, 'load', initialize);
-});
 function initialize() {
 	var mapCanvas = document.getElementById('map_canvas');
 	var mapOptions = {

@@ -86,6 +86,7 @@ public class AdminMainController {
 			@RequestParam(value="attrName", required=false) String[] attributeNames,
 			@RequestParam(value="attrValue", required=false) String[] attributeValues,
 			@RequestParam(value="interfaceValue", required=false) String[] interfaceValues,
+			@RequestParam(value="elemId", required=false) String[] elementIds,
 			@RequestParam(value="save", required=false) String save,
 			@RequestParam(value="stats", required=false) String status,
 			@ModelAttribute PostData postData) throws SQLException {
@@ -106,8 +107,16 @@ public class AdminMainController {
 	    		if (attributeNames != null)
 	    			for (String attributeName : attributeNames) {
 	    				String attributeValue = attributeValues[pos];
-	    				String interfaceValue = interfaceValues[(pos++)];
+	    				String interfaceValue = interfaceValues[pos];
 	    				AttributeImpl attribute = new AttributeImpl(attributeName, attributeValue, interfaceValue.equals("1"));
+	    				if (elementIds != null && elementIds.length > pos){
+	    					String elementId = elementIds[pos++];
+	    					if (StringUtils.isNotEmpty(elementId)) {
+	    						attribute.setElementId(Integer.parseInt(elementId));
+	    					}
+	    				} else {
+	    					pos++;
+	    				}
 	    				attributes.add(attribute);
 	    			}
 	    		if (StringUtils.isNotBlank(status)) {
@@ -119,15 +128,9 @@ public class AdminMainController {
 	    		DataUtils.populatePost(genericService, postData, foundPost);
 	    		if (foundPost.getAttributes() != null)
 	    			foundPost.getAttributes().clear();
-	    		for (Attribute attribute : attributes)
-	    			genericService.addEntity(attribute);
 	    		foundPost.addAllAttribues(attributes);
-	    		if (foundPost.getElementId() != -1) {
-	    			genericService.modifyEntity(foundPost);
-	    		} else {
-	    			category.addPost(foundPost);
-	    			genericService.modifyEntity(category);
-	    		}
+	    		foundPost.setBelongingCategory(category);
+    			genericService.addEntity(foundPost);
 	    		if ((foundMainImage != null) && (((ImageImpl)foundMainImage).getElementId() != -1))
 	    			genericService.removeEntity(foundMainImage);
 	    	}
