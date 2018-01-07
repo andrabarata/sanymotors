@@ -55,6 +55,12 @@ public class PostServiceImpl implements PostService{
 		int postNumber = postDao.getPiecesPostCount();
 		return getPage(postNumber, pageSize);
 	}
+	
+	@Override
+	public int getLastRentPage(int pageSize) {
+		int postNumber = postDao.getRentPostCount();
+		return getPage(postNumber, pageSize);
+	}
 
 	@Override
 	public List<String> getAvailableAttributeNames() {
@@ -85,6 +91,12 @@ public class PostServiceImpl implements PostService{
 	public List<Post> getAllPieces(int page, int pageSize) {
 		return postDao.getAllPieces(page, pageSize);
 	}
+	
+	@Override
+	public List<Post> getAllRents(int page, int pageSize) {
+		return postDao.getAllRents(page, pageSize);
+	}
+
 
 	@Override
 	public Map<Integer, String> getAllCategories() {

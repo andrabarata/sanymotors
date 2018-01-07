@@ -19,6 +19,7 @@ public class PropertiesData {
 	private int lastPage;
 	private int lastMotorcyclePage;
 	private int lastPiecesPage;
+	private int lastRentPage;
 	
 	public String getAddressValue() {
 		return addressValue;
@@ -74,6 +75,14 @@ public class PropertiesData {
 
 	public void setLastPiecesPage(int lastPiecesPage) {
 		this.lastPiecesPage = lastPiecesPage;
+	}
+
+	public int getLastRentPage() {
+		return lastRentPage;
+	}
+
+	public void setLastRentPage(int lastRentPage) {
+		this.lastRentPage = lastRentPage;
 	}
 	
 }

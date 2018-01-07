@@ -15,5 +15,7 @@ public interface PostDao{
 	public int getBelongingCategoryId(int elementId);
 	public List<Post> getAllMotorcycles(int page, int pageSize, String categoryId);
 	public List<Post> getAllPieces(int page, int pageSize);
+	public int getRentPostCount();
+	public List<Post> getAllRents(int page, int pageSize);
 	
 }

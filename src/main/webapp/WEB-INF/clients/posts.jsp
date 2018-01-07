@@ -85,7 +85,7 @@
 					<div class="pagination pagination-centered">
 		                <ul>
 		                	<c:if test="${page!=1 }">
-		                		<li class="paginationItem" id="pg1" onclick="displayPage('1')">«</li>
+		                		<li class="paginationItem" id="pg1" onclick="displayPage('1',,'motociclete')">«</li>
 		                	</c:if>
 		                 	<c:if test="${page>4 and propertiesData.lastMotorcyclePage>5}">
 		                    	<li class="dotPaged">...</li>
@@ -99,7 +99,7 @@
 			                 					<c:if test="${page==pageCount}">
 			                 						<c:set var="contPage" value="active"/>
 			                 					</c:if>
-			                 					 <li class="paginationItem ${contPage}"  id="pg${pageCount}" onclick="displayPage('${pageCount}')">${pageCount}</li>
+			                 					 <li class="paginationItem ${contPage}"  id="pg${pageCount}" onclick="displayPage('${pageCount}','motociclete')">${pageCount}</li>
 			                 				</c:forEach>
 		                    			</c:when>
 		                    			<c:otherwise>
@@ -108,7 +108,7 @@
 			                 					<c:if test="${page==pageCount}">
 			                 						<c:set var="contPage" value="active"/>
 			                 					</c:if>
-			                 					 <li class="paginationItem ${contPage}"  id="pg${pageCount}" onclick="displayPage('${pageCount}')">${pageCount}</li>
+			                 					 <li class="paginationItem ${contPage}"  id="pg${pageCount}" onclick="displayPage('${pageCount}','motociclete')">${pageCount}</li>
 		                    				</c:forEach>
 		                    			</c:otherwise>
 		                    		</c:choose>
@@ -121,7 +121,7 @@
 			                 				<c:if test="${page==pageCount}">
 			                 					<c:set var="contPage" value="active"/>
 			                 				</c:if>
-			                 					<li class="paginationItem ${contPage}"  id="pg${pageCount}" onclick="displayPage('${pageCount}')">${pageCount}</li>
+			                 					<li class="paginationItem ${contPage}"  id="pg${pageCount}" onclick="displayPage('${pageCount}','motociclete')">${pageCount}</li>
 			                 			</c:forEach>+
 		                    		</c:when>
 		                    		<c:otherwise>
@@ -130,7 +130,7 @@
 			                 				<c:if test="${page==pageCount}">
 			                 					<c:set var="contPage" value="active"/>
 			                 				</c:if>
-		                    					 <li class="paginationItem" id="pg${pageCount}" onclick="displayPage('${pageCount}')">${pageCount}</li>
+		                    					 <li class="paginationItem" id="pg${pageCount}" onclick="displayPage('${pageCount}','motociclete')">${pageCount}</li>
 		                    				</c:forEach>
 		                    		</c:otherwise>
 		                    	</c:choose>
@@ -140,7 +140,7 @@
 				                    	<li class="paginationItem dotPaged">...</li>
 							</c:if>
 		                      <c:if test="${page!=propertiesData.lastMotorcyclePage && propertiesData.lastMotorcyclePage!=0}">
-				                    	<li class="paginationItem" id="pg${propertiesData.lastMotorcyclePage}" onclick="displayPage('${propertiesData.lastMotorcyclePage}')">»</li>
+				                    	<li class="paginationItem" id="pg${propertiesData.lastMotorcyclePage}" onclick="displayPage('${propertiesData.lastMotorcyclePage}','motociclete')">»</li>
 							</c:if>
 		                 </ul>
 	            	</div>

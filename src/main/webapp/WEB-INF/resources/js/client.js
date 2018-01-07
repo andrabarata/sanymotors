@@ -69,12 +69,8 @@ function selectCategory(categoryId){
 	$("input[name='category']").val(categoryId);
 	$("#categoryId").submit();
 }
-function displayPage(pageNumber){
-	var page = $("#host").val()+"/motociclete?pagina="+pageNumber;
-	document.location.href = page;
-}
-function displayPiesePage(pageNumber){
-	var page = $("#host").val()+"/piese?pagina="+pageNumber;
+function displayPage(pageNumber,name){
+	var page = $("#host").val()+"/" + name + "?pagina="+pageNumber;
 	document.location.href = page;
 }
 function showPost(elementId){
@@ -82,6 +78,9 @@ function showPost(elementId){
 }
 function showPiesa(elementId){
 	document.location.href = $("#host").val()+"/piese/anunt?p="+btoa(elementId);
+}
+function showInchiriere(elementId){
+	document.location.href = $("#host").val()+"/inchirieri/anunt?p="+btoa(elementId);
 }
 function initialize() {
 	var mapCanvas = document.getElementById('map_canvas');

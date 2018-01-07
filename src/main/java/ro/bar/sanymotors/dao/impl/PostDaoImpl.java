@@ -60,6 +60,12 @@ public class PostDaoImpl extends AbstractDao implements PostDao{
 		String sqlQuery = "select count(*) from post where state=3";
 	    return ((BigInteger)getCurrentSession().createSQLQuery(sqlQuery).uniqueResult()).intValue();
 	}
+	
+	@Override
+	public int getRentPostCount() {
+		String sqlQuery = "select count(*) from post where state=2";
+	    return ((BigInteger)getCurrentSession().createSQLQuery(sqlQuery).uniqueResult()).intValue();
+	}
 
 	@Override
 	public int getBelongingCategoryId(int elementId) {
@@ -87,6 +93,14 @@ public class PostDaoImpl extends AbstractDao implements PostDao{
 	public List<Post> getAllPieces(int page, int pageSize) {
 		 int startIdx = pageSize * (page - 1);
 		 String hqlQuery = "select posts from PostImpl posts where posts.state = 3";
+		 return getCurrentSession().createQuery(hqlQuery).setFirstResult(startIdx).setMaxResults(pageSize).list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Post> getAllRents(int page, int pageSize) {
+		 int startIdx = pageSize * (page - 1);
+		 String hqlQuery = "select posts from PostImpl posts where posts.state = 2";
 		 return getCurrentSession().createQuery(hqlQuery).setFirstResult(startIdx).setMaxResults(pageSize).list();
 	}
 	

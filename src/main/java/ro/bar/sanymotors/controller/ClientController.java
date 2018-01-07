@@ -83,6 +83,20 @@ public class ClientController{
 		  modelMap.put("posts", posts);
 		  return new ModelAndView("piese", modelMap);
 	  }
+	  @RequestMapping({"/inchirieri"})
+	  public ModelAndView getRents(@RequestParam(value="pagina", required=false) String page,
+			  @ModelAttribute PropertiesData propertiesData,
+			  @ModelAttribute PostData postData) {
+		  
+		  Map<String, Object> modelMap = new HashMap<>();
+		  int pageValue = StringUtils.isNotBlank(page) ? Integer.parseInt(page) : 1;
+		  modelMap.put("page", Integer.valueOf(pageValue));
+		  propertiesData.setLastRentPage(postService.getLastRentPage(Integer.parseInt(propertiesData.getClientPageItems())));
+		  List<Post> posts = postService.getAllRents(pageValue, Integer.parseInt(propertiesData.getClientPageItems()));
+		  postData.setPosts(posts);
+		  modelMap.put("posts", posts);
+		  return new ModelAndView("inchirieri", modelMap);
+	  }
 	  
 	  @RequestMapping({"/piese/anunt"})
 	  public ModelAndView getPiesa(@RequestParam(value="p", required=true) String elementId, @ModelAttribute PostData postData) {
@@ -91,11 +105,6 @@ public class ClientController{
 		  Map<String, Object> modelMap = new HashMap<>();
 		  modelMap.put("post", foundPost);
 		  return new ModelAndView("clientPiesa", modelMap);
-	  }
-	  
-	  @RequestMapping({"/inchirieri"})
-	  public ModelAndView getInchirieri() {
-		  return new ModelAndView("inchirieri");
 	  }
 	  
 	  @RequestMapping({"/contact"})

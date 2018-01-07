@@ -14,6 +14,7 @@ public interface PostService {
 	public int getLastPage(int pageSize);
 	public int getLastMotorcyclePage(int pageSize, String category);
 	public int getLastPiecesPage(int pageSize);
+	public int getLastRentPage(int pageSize);
 	public List<String> getAvailableAttributeNames();
 	public List<AttributeImpl> getAttributes(int elementId);
 	public int getBelongingCategoryId(int elementId);
@@ -21,4 +22,5 @@ public interface PostService {
 	public List<Post> getAllMotorcycles(int page, int pageSize, String categoryId);
 	public List<Post> getAllPieces(int page, int pageSize);
 	public Map<Integer, String> getAllCategories();
+	public List<Post> getAllRents(int pageValue, int parseInt);
 }
