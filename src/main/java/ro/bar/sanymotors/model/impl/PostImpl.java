@@ -90,7 +90,7 @@ public class PostImpl extends SerializableElement implements Post{
 	}
 	
 	public void setNewCreationDate(){
-		dateCreated = new SimpleDateFormat("dd/MM/yy hh:mm").format(new Date());
+		dateCreated = new SimpleDateFormat("dd/MM/yy HH:mm").format(new Date());
 	}
 	
 	public void addAllAttribues(List<Attribute> attributes) {
