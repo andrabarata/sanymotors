@@ -73,6 +73,10 @@ function displayPage(pageNumber){
 	var page = $("#host").val()+"/motociclete?pagina="+pageNumber;
 	document.location.href = page;
 }
+function displayPiesePage(pageNumber){
+	var page = $("#host").val()+"/piese?pagina="+pageNumber;
+	document.location.href = page;
+}
 function showPost(elementId){
 	document.location.href = $("#host").val()+"/motociclete/anunt?p="+btoa(elementId);
 }

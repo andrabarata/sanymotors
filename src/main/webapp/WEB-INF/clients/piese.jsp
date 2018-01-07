@@ -85,7 +85,7 @@
 					<div class="pagination pagination-centered">
 		                <ul>
 		                	<c:if test="${page!=1 }">
-		                		<li class="paginationItem" id="pg1" onclick="displayPage('1')">«</li>
+		                		<li class="paginationItem" id="pg1" onclick="displayPiesePage('1')">«</li>
 		                	</c:if>
 		                 	<c:if test="${page>4 and propertiesData.lastPiecesPage>5}">
 		                    	<li class="dotPaged">...</li>
@@ -99,7 +99,7 @@
 			                 					<c:if test="${page==pageCount}">
 			                 						<c:set var="contPage" value="active"/>
 			                 					</c:if>
-			                 					 <li class="paginationItem ${contPage}"  id="pg${pageCount}" onclick="displayPage('${pageCount}')">${pageCount}</li>
+			                 					 <li class="paginationItem ${contPage}"  id="pg${pageCount}" onclick="displayPiesePage('${pageCount}')">${pageCount}</li>
 			                 				</c:forEach>
 		                    			</c:when>
 		                    			<c:otherwise>
@@ -108,7 +108,7 @@
 			                 					<c:if test="${page==pageCount}">
 			                 						<c:set var="contPage" value="active"/>
 			                 					</c:if>
-			                 					 <li class="paginationItem ${contPage}"  id="pg${pageCount}" onclick="displayPage('${pageCount}')">${pageCount}</li>
+			                 					 <li class="paginationItem ${contPage}"  id="pg${pageCount}" onclick="displayPiesePage('${pageCount}')">${pageCount}</li>
 		                    				</c:forEach>
 		                    			</c:otherwise>
 		                    		</c:choose>
@@ -121,7 +121,7 @@
 			                 				<c:if test="${page==pageCount}">
 			                 					<c:set var="contPage" value="active"/>
 			                 				</c:if>
-			                 					<li class="paginationItem ${contPage}"  id="pg${pageCount}" onclick="displayPage('${pageCount}')">${pageCount}</li>
+			                 					<li class="paginationItem ${contPage}"  id="pg${pageCount}" onclick="displayPiesePage('${pageCount}')">${pageCount}</li>
 			                 			</c:forEach>+
 		                    		</c:when>
 		                    		<c:otherwise>
@@ -130,7 +130,7 @@
 			                 				<c:if test="${page==pageCount}">
 			                 					<c:set var="contPage" value="active"/>
 			                 				</c:if>
-		                    					 <li class="paginationItem" id="pg${pageCount}" onclick="displayPage('${pageCount}')">${pageCount}</li>
+		                    					 <li class="paginationItem" id="pg${pageCount}" onclick="displayPiesePage('${pageCount}')">${pageCount}</li>
 		                    				</c:forEach>
 		                    		</c:otherwise>
 		                    	</c:choose>
@@ -140,7 +140,7 @@
 				                    	<li class="paginationItem dotPaged">...</li>
 							</c:if>
 		                      <c:if test="${page!=propertiesData.lastPiecesPage && propertiesData.lastPiecesPage!=0}">
-				                    	<li class="paginationItem" id="pg${propertiesData.lastPiecesPage}" onclick="displayPage('${propertiesData.lastPiecesPage}')">»</li>
+				                    	<li class="paginationItem" id="pg${propertiesData.lastPiecesPage}" onclick="displayPiesePage('${propertiesData.lastPiecesPage}')">»</li>
 							</c:if>
 		                 </ul>
 	            	</div>
