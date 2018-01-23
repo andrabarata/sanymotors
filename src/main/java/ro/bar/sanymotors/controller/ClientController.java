@@ -107,6 +107,15 @@ public class ClientController{
 		  return new ModelAndView("clientPiesa", modelMap);
 	  }
 	  
+	  @RequestMapping({"/inchirieri/anunt"})
+	  public ModelAndView getRent(@RequestParam(value="p", required=true) String elementId, @ModelAttribute PostData postData) {
+		  String decodedElementId = new String(Base64.decodeBase64(elementId));
+		  Post foundPost = postData.getPostById(decodedElementId);
+		  Map<String, Object> modelMap = new HashMap<>();
+		  modelMap.put("post", foundPost);
+		  return new ModelAndView("inchiriere", modelMap);
+	  }
+	  
 	  @RequestMapping({"/contact"})
 	  public ModelAndView getContact() {
 		  return new ModelAndView("contact");

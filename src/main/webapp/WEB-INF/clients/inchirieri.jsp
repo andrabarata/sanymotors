@@ -15,7 +15,7 @@
 				</div>
 				<div class="clearfix"></div>
 				<div class="container-img">
-					<img alt="Piese motociclete" src='${post.mainImage.base64Content}'>
+					<img alt="Inchireri" src='${post.mainImage.base64Content}'>
 				</div>
 				<div class="clearfix"></div>
 				<div class="container-text">

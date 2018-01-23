@@ -57,6 +57,9 @@
 	<definition name="inchirieri" extends="clientPanel">
 		<put-attribute name="body" value="/WEB-INF/clients/inchirieri.jsp"/>
 	</definition>
+	<definition name="inchiriere" extends="clientPanel">
+		<put-attribute name="body" value="/WEB-INF/clients/inchiriere.jsp"/>
+	</definition>
 	<definition name="forum" extends="clientPanel">
 		<put-attribute name="body" value="/WEB-INF/clients/forum.jsp"/>
 	</definition>

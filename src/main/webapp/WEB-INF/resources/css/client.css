@@ -303,3 +303,18 @@
     text-align: center;
     padding-top: 5px;
 }
+.info-service {
+	width: 50%;
+    border: 1px solid silver;
+    border-radius: 11px;
+    box-shadow: 10px 10px 5px rgba(170, 170, 170, 0.57);
+    padding: 10px;
+    display:inline-block;
+    margin:10px;
+}
+.info-service:nth-child(odd){
+	float: right;
+}
+span {
+	width: 100%!important;
+}
